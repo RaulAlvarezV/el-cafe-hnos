@@ -1,0 +1,95 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f6f7d4;
+  color: #683015;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5 {
+  color: #683015;
+  font-weight: 700;
+}
+
+a {
+  text-decoration: none;
+  color: #ffc54c;
+}
+a:hover {
+  color: rgb(255, 180.4748603352, 25);
+}
+
+.logo-main {
+  max-width: 280px;
+  height: auto;
+}
+
+.bg-primary {
+  background-color: #683015 !important;
+}
+
+.text-primary {
+  color: #683015 !important;
+}
+
+.btn-primary {
+  background-color: #683015 !important;
+  border: none !important;
+}
+.btn-primary:hover {
+  background-color: rgb(70.0544, 32.3328, 14.1456) !important;
+}
+
+.btn-outline-primary {
+  color: #683015 !important;
+  border: 2px solid #683015 !important;
+}
+.btn-outline-primary:hover {
+  background-color: #683015 !important;
+  color: #f6f7d4 !important;
+}
+
+.navbar {
+  background-color: #683015 !important;
+}
+.navbar .nav-link {
+  color: #f6f7d4 !important;
+  font-weight: 500;
+}
+.navbar .nav-link:hover {
+  color: #ffc54c !important;
+}
+.navbar .nav-link.active {
+  color: #ffc54c !important;
+  font-weight: 600;
+}
+
+footer {
+  background-color: #683015 !important;
+  color: #f6f7d4 !important;
+}
+footer a {
+  color: #ffc54c !important;
+  font-weight: bold;
+}
+footer a:hover {
+  color: rgb(255, 213.5251396648, 127) !important;
+}
+
+.opiniones {
+  background-color: rgb(250.5, 251, 233.5);
+  border-left: 5px solid #056c34;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+}
+.opiniones p {
+  margin: 0;
+  font-style: italic;
+}
+.opiniones strong {
+  display: block;
+  margin-top: 0.5rem;
+  color: #056c34;
+}
+
+/*# sourceMappingURL=styles.css.map */
