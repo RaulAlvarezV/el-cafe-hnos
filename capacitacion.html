@@ -9,10 +9,12 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar bg-primary sticky-top">
+  <!-- Navbar sticky-top -->
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
       <a class="navbar-brand fw-bold" href="index.html">El Café Hermanos</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -21,52 +23,79 @@
           <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
           <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
           <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
-          <li class="nav-item"><a class="nav-link active" href="capacitacion.html">Capacitación</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
+  <!-- Hero Parallax -->
   <section class="hero">
     <div class="container hero-content fade-in">
-      <img src="./assets/img/El café Hermanos LOGO.png" alt="El Café Hermanos" class="hero-logo fade-in" style="animation-delay:0.2s;">
-      <h2 class="fade-in" style="animation-delay:0.4s;">Capacitación de Personal</h2>
-      <p class="fade-in" style="animation-delay:0.5s;">Convertimos a tu equipo en expertos baristas.</p>
+      <img src="./assets/img/El café Hermanos LOGO.png" alt="El Café Hermanos" class="hero-logo fade-in logo-animation">
+      <h2 class="fade-in hero-title">Capacitación de Personal</h2>
+      <p class="fade-in">Convertimos a tu equipo en expertos baristas.</p>
     </div>
   </section>
 
-  <section>
-    <div class="container py-5 fade-in" style="animation-delay:0.6s;">
-      <ul>
-        <li>Uso y cuidado de la cafetera</li>
-        <li>Preparación de espresso y bebidas derivadas</li>
-        <li>Atención y servicio al cliente</li>
-      </ul>
+  <!-- Programas de capacitación -->
+  <section class="py-5">
+    <div class="container">
+      <h2 class="mb-5 text-center fade-in section-title">Programas de Capacitación</h2>
+      <div class="row g-4">
+        <div class="col-md-4 fade-in">
+          <div class="card h-100 text-center">
+            <div class="card-body">
+              <h5 class="card-title">Uso y Cuidado de Cafeteras</h5>
+              <p class="card-text">Aprende el manejo correcto del equipamiento y las técnicas de mantenimiento básico.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 fade-in">
+          <div class="card h-100 text-center">
+            <div class="card-body">
+              <h5 class="card-title">Preparación de Espresso</h5>
+              <p class="card-text">Domina la preparación de espresso perfecto y todas sus bebidas derivadas.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 fade-in">
+          <div class="card h-100 text-center">
+            <div class="card-body">
+              <h5 class="card-title">Atención al Cliente</h5>
+              <p class="card-text">Técnicas de servicio profesional para brindar la mejor experiencia al cliente.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- Footer con Instagram -->
   <footer>
     <div class="container">
-      <p class="mb-1">&copy; 2025 El Café Hermanos - Mendoza</p>
+      <p class="mb-1">&copy; 2025 El Café Hermanos - Mendoza | Distribuidores Oficiales de Café 5 Hispanos</p>
       <a href="https://www.instagram.com/elcafehermanos/" target="_blank" class="instagram-link">
-        <img src="./assets/icons/instagram.svg" alt="Instagram"> Síguenos en Instagram
+        <img src="./assets/icons/instagram.svg" alt="Instagram">
       </a>
+      <span class="follow-text">Síguenos en Instagram</span>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-    faders.forEach(fader => appearOnScroll.observe(fader));
+    document.addEventListener("DOMContentLoaded", function () {
+      const faders = document.querySelectorAll('.fade-in');
+      const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+      const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        });
+      }, appearOptions);
+      faders.forEach(fader => appearOnScroll.observe(fader));
+    });
   </script>
-
 </body>
 </html>
-

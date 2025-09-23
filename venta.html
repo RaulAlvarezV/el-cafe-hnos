@@ -9,11 +9,12 @@
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar bg-primary sticky-top">
+  <!-- Navbar sticky-top -->
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
       <a class="navbar-brand fw-bold" href="index.html">El Café Hermanos</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -22,29 +23,27 @@
           <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
           <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
           <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
-          <li class="nav-item"><a class="nav-link active" href="venta.html">Venta</a></li>
           <li class="nav-item"><a class="nav-link" href="contacto.html">Contacto</a></li>
         </ul>
       </div>
-    </div> 
+    </div>
   </nav>
 
-  <!-- Hero / Header -->
+  <!-- Hero Parallax -->
   <section class="hero">
     <div class="container hero-content fade-in">
-      <img src="./assets/img/El café Hermanos LOGO.png" alt="El Café Hermanos" class="hero-logo fade-in" style="animation-delay:0.2s;">
-      <h2 class="fade-in" style="animation-delay:0.4s;">Comercios que confían en nosotros</h2>
-      <p class="fade-in" style="animation-delay:0.5s;">Descubrí quiénes venden nuestros productos y conocé las variedades disponibles.</p>
+      <img src="./assets/img/El café Hermanos LOGO.png" alt="El Café Hermanos" class="hero-logo fade-in logo-animation">
+      <h2 class="fade-in hero-title">Comercios que confían en nosotros</h2>
+      <p class="fade-in">Descubrí quiénes venden nuestros productos y conocé las variedades disponibles.</p>
     </div>
   </section>
 
   <!-- Comercios colaboradores -->
-  <section class="py-5 fade-in" style="animation-delay:0.6s;">
+  <section class="py-5">
     <div class="container">
-      <h3 class="mb-4">Cafeterías & comercios asociados</h3>
+      <h2 class="mb-5 text-center fade-in section-title">Cafeterías & Comercios Asociados</h2>
       <div class="row g-4">
-        <!-- Cada una con imagen de una cafetería, nombre, breve descripción -->
-        <div class="col-md-4">
+        <div class="col-md-4 fade-in">
           <div class="card h-100">
             <img src="./assets/img/cafeteria1.jpg" class="card-img-top" alt="Cafetería A">
             <div class="card-body">
@@ -53,7 +52,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 fade-in">
           <div class="card h-100">
             <img src="./assets/img/cafeteria2.jpg" class="card-img-top" alt="Cafetería B">
             <div class="card-body">
@@ -62,7 +61,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 fade-in">
           <div class="card h-100">
             <img src="./assets/img/cafeteria3.jpg" class="card-img-top" alt="Cafetería C">
             <div class="card-body">
@@ -75,24 +74,24 @@
     </div>
   </section>
 
-  <!-- Opiniones de nuestro servicio -->
-  <section class="bg-beige py-5 fade-in" style="animation-delay:0.8s;">
+  <!-- Opiniones de Clientes -->
+  <section class="opiniones-section">
     <div class="container">
-      <h3 class="mb-4 text-center">Opiniones de comercios que trabajan con nosotros</h3>
+      <h2 class="mb-5 text-center fade-in section-title">Opiniones de Comercios que Trabajan con Nosotros</h2>
       <div class="row g-4">
-        <div class="col-md-4">
+        <div class="col-md-4 fade-in">
           <div class="opiniones">
             <p>“El Café Hermanos nos provee consistentemente cafés de alta calidad, lo que nos permite mantener a nuestros clientes satisfechos.”</p>
             <strong>— Dueño de Cafetería A</strong>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 fade-in">
           <div class="opiniones">
             <p>“El café molido intenso nos da justo la potencia que busca nuestra clientela matutina.”</p>
             <strong>— Gerente Comercio B</strong>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 fade-in">
           <div class="opiniones">
             <p>“Las variedades como Santos Bourbon y Tostado Espresso son clásicos que nuestra cafetería no puede faltar.”</p>
             <strong>— Barista de Cafetería C</strong>
@@ -103,35 +102,40 @@
   </section>
 
   <!-- Variedades de grano y molidos -->
-  <section class="py-5 fade-in" style="animation-delay:1.0s;">
+  <section class="py-5">
     <div class="container">
-      <h3 class="mb-4">Variedades disponibles de Café 5 Hispanos</h3>
-      
-      <h4 class="mt-4">Línea Gastronómica – Granos</h4>
-      <ul class="list-group mb-4">
-        <li class="list-group-item">Santos Crema</li>
-        <li class="list-group-item">Gran Selecto</li>
-        <li class="list-group-item">Santos Bourbon</li>
-        <li class="list-group-item">Tostado Expresso</li>
-        <li class="list-group-item">CONFE</li>
-      </ul>
-
-      <h4 class="mt-4">Línea Hogar – Molidos</h4>
-      <ul class="list-group">
-        <li class="list-group-item">Tostado Molido Suave</li>
-        <li class="list-group-item">Tostado Molido Medio</li>
-        <li class="list-group-item">Tostado Molido Intenso</li>
-      </ul>
+      <h2 class="mb-5 text-center fade-in section-title">Variedades Disponibles de Café 5 Hispanos</h2>
+      <div class="row g-4">
+        <div class="col-md-6 fade-in">
+          <h4 class="mt-4">Línea Gastronómica – Granos</h4>
+          <ul class="list-group mb-4">
+            <li class="list-group-item">Santos Crema</li>
+            <li class="list-group-item">Gran Selecto</li>
+            <li class="list-group-item">Santos Bourbon</li>
+            <li class="list-group-item">Tostado Expresso</li>
+            <li class="list-group-item">CONFE</li>
+          </ul>
+        </div>
+        <div class="col-md-6 fade-in">
+          <h4 class="mt-4">Línea Hogar – Molidos</h4>
+          <ul class="list-group">
+            <li class="list-group-item">Tostado Molido Suave</li>
+            <li class="list-group-item">Tostado Molido Medio</li>
+            <li class="list-group-item">Tostado Molido Intenso</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- Footer con Instagram -->
   <footer>
     <div class="container">
-      <p class="mb-1">&copy; 2025 El Café Hermanos - Mendoza</p>
+      <p class="mb-1">&copy; 2025 El Café Hermanos - Mendoza | Distribuidores Oficiales de Café 5 Hispanos</p>
       <a href="https://www.instagram.com/elcafehermanos/" target="_blank" class="instagram-link">
-        <img src="./assets/icons/instagram.svg" alt="Instagram"> Síguenos en Instagram
+        <img src="./assets/icons/instagram.svg" alt="Instagram">
       </a>
+      <span class="follow-text">Síguenos en Instagram</span>
     </div>
   </footer>
 
@@ -150,6 +154,5 @@
       faders.forEach(fader => appearOnScroll.observe(fader));
     });
   </script>
-
 </body>
 </html>

@@ -9,10 +9,12 @@
 </head>
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar bg-primary sticky-top">
+  <!-- Navbar sticky-top -->
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
       <a class="navbar-brand fw-bold" href="index.html">El Café Hermanos</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -27,56 +29,66 @@
     </div>
   </nav>
 
+  <!-- Hero Parallax -->
   <section class="hero">
     <div class="container hero-content fade-in">
-      <img src="./assets/img/El café Hermanos LOGO.png" alt="El Café Hermanos" class="hero-logo fade-in" style="animation-delay:0.2s;">
-      <h2 class="fade-in" style="animation-delay:0.4s;">Contáctanos</h2>
-      <p class="fade-in" style="animation-delay:0.5s;">Estamos para ayudarte y responder todas tus consultas.</p>
+      <img src="./assets/img/El café Hermanos LOGO.png" alt="El Café Hermanos" class="hero-logo fade-in logo-animation">
+      <h2 class="fade-in hero-title">Contáctanos</h2>
+      <a href="#formulario" class="btn btn-primary hero-btn fade-in">Enviar Mensaje</a>
     </div>
   </section>
 
-  <section class="bg-beige py-5 fade-in" style="animation-delay:0.6s;">
+  <!-- Formulario de contacto -->
+  <section class="py-5" id="formulario">
     <div class="container">
-      <form>
-        <div class="mb-3">
-          <label for="nombre" class="form-label">Nombre</label>
-          <input type="text" class="form-control" id="nombre" placeholder="Tu nombre">
+      <h2 class="mb-5 text-center fade-in section-title">Envíanos tu Consulta</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-8 fade-in">
+          <form>
+            <div class="mb-3">
+              <label for="nombre" class="form-label">Nombre</label>
+              <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control" id="email" placeholder="tu@email.com" required>
+            </div>
+            <div class="mb-3">
+              <label for="mensaje" class="form-label">Mensaje</label>
+              <textarea class="form-control" id="mensaje" rows="4" placeholder="Cuéntanos cómo podemos ayudarte..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Enviar Mensaje</button>
+          </form>
         </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Correo electrónico</label>
-          <input type="email" class="form-control" id="email" placeholder="tu@email.com">
-        </div>
-        <div class="mb-3">
-          <label for="mensaje" class="form-label">Mensaje</label>
-          <textarea class="form-control" id="mensaje" rows="4"></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary w-100">Enviar</button>
-      </form>
+      </div>
     </div>
   </section>
 
+  <!-- Footer con Instagram -->
   <footer>
     <div class="container">
-      <p class="mb-1">&copy; 2025 El Café Hermanos - Mendoza</p>
+      <p class="mb-1">&copy; 2025 El Café Hermanos - Mendoza | Distribuidores Oficiales de Café 5 Hispanos</p>
       <a href="https://www.instagram.com/elcafehermanos/" target="_blank" class="instagram-link">
-        <img src="./assets/icons/instagram.svg" alt="Instagram"> Síguenos en Instagram
+        <img src="./assets/icons/instagram.svg" alt="Instagram">
       </a>
+      <span class="follow-text">Síguenos en Instagram</span>
     </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
-    faders.forEach(fader => appearOnScroll.observe(fader));
+    document.addEventListener("DOMContentLoaded", function () {
+      const faders = document.querySelectorAll('.fade-in');
+      const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+      const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        });
+      }, appearOptions);
+      faders.forEach(fader => appearOnScroll.observe(fader));
+    });
   </script>
-
 </body>
 </html>
-
