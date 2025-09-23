@@ -1,118 +1,65 @@
-// 🎨 Paleta de colores
-$color-principal: #683015; // Marrón café
-$color-secundario: #ffc54c; // Dorado
-$color-verde: #056c34; // Verde
-$color-beige: #f6f7d4; // Beige claro
+/* 🎨 Paleta */
+$color-principal: #683015;
+$color-secundario: #ffc54c;
+$color-verde: #056c34;
+$color-beige: #f6f7d4;
 
-// 🔤 Tipografía base
-$font-stack: "Segoe UI", Arial, sans-serif;
-
-// 🎯 Estilos globales
+/* Body */
 body {
-  font-family: $font-stack;
-  background-color: $color-beige;
-  color: $color-principal;
-  line-height: 1.6;
-}
-
-h1, h2, h3, h4, h5 {
-  color: $color-principal;
-  font-weight: 700;
-}
-
-a {
-  text-decoration: none;
-  color: $color-secundario;
-
-  &:hover {
-    color: darken($color-secundario, 10%);
-  }
-}
-
-// 🖼️ Logo
-.logo-main {
-  max-width: 280px;
-  height: auto;
-}
-
-// 🔹 Override de Bootstrap
-.bg-primary {
-  background-color: $color-principal !important;
-}
-
-.text-primary {
+  background-color: $color-beige !important;
   color: $color-principal !important;
+  font-family: "Segoe UI", Arial, sans-serif;
 }
 
-.btn-primary {
+/* 🔹 Navbar */
+.navbar,
+.navbar.bg-primary,
+.navbar-dark.bg-primary {
   background-color: $color-principal !important;
-  border: none !important;
+}
+
+.navbar .nav-link {
+  color: $color-beige !important;
+  font-weight: 500;
 
   &:hover {
-    background-color: darken($color-principal, 8%) !important;
+    color: $color-secundario !important;
+  }
+  &.active {
+    color: $color-secundario !important;
+    font-weight: 600;
   }
 }
 
-.btn-outline-primary {
-  color: $color-principal !important;
-  border: 2px solid $color-principal !important;
-
-  &:hover {
-    background-color: $color-principal !important;
-    color: $color-beige !important;
-  }
-}
-
-// 🔹 Navbar
-.navbar {
+/* 🔹 Botones */
+.btn,
+.btn-primary,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:visited {
   background-color: $color-principal !important;
-
-  .nav-link {
-    color: $color-beige !important;
-    font-weight: 500;
-
-    &:hover {
-      color: $color-secundario !important;
-    }
-
-    &.active {
-      color: $color-secundario !important;
-      font-weight: 600;
-    }
-  }
+  border-color: $color-principal !important;
+  color: $color-beige !important;
 }
 
-// 🔹 Footer
-footer {
+.btn-primary:hover {
+  background-color: darken($color-principal, 8%) !important;
+  border-color: darken($color-principal, 8%) !important;
+}
+
+/* 🔹 Footer */
+footer,
+footer.bg-primary {
   background-color: $color-principal !important;
   color: $color-beige !important;
+}
 
-  a {
-    color: $color-secundario !important;
-    font-weight: bold;
+footer a {
+  color: $color-secundario !important;
+  font-weight: bold;
 
-    &:hover {
-      color: lighten($color-secundario, 10%) !important;
-    }
+  &:hover {
+    color: lighten($color-secundario, 10%) !important;
   }
 }
 
-// 🔹 Opiniones de clientes
-.opiniones {
-  background-color: lighten($color-beige, 5%);
-  border-left: 5px solid $color-verde;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 8px;
-
-  p {
-    margin: 0;
-    font-style: italic;
-  }
-
-  strong {
-    display: block;
-    margin-top: 0.5rem;
-    color: $color-verde;
-  }
-}
