@@ -1,65 +1,116 @@
-/* 🎨 Paleta */
-$color-principal: #683015;
-$color-secundario: #ffc54c;
-$color-verde: #056c34;
-$color-beige: #f6f7d4;
+// 🎨 Paleta de colores
+$color-principal: #683015; // Marrón café
+$color-secundario: #ffc54c; // Dorado
+$color-verde: #056c34; // Verde
+$color-beige: #f6f7d4; // Beige claro
 
-/* Body */
+// 🔤 Tipografía
+$font-stack: "Segoe UI", Arial, sans-serif;
+
+// 🔹 Global
 body {
-  background-color: $color-beige !important;
-  color: $color-principal !important;
-  font-family: "Segoe UI", Arial, sans-serif;
+  font-family: $font-stack;
+  background-color: $color-beige;
+  color: $color-principal;
+  line-height: 1.6;
 }
 
-/* 🔹 Navbar */
-.navbar,
-.navbar.bg-primary,
-.navbar-dark.bg-primary {
+h1, h2, h3, h4, h5 {
+  color: $color-principal;
+  font-weight: 700;
+}
+
+a, .nav-link, .btn, .btn-outline-primary {
+  color: $color-secundario !important;
+  &:hover { color: adjust-color($color-secundario, $lightness: -10%) !important; }
+}
+
+// 🔹 Navbar
+.navbar {
   background-color: $color-principal !important;
-}
-
-.navbar .nav-link {
-  color: $color-beige !important;
-  font-weight: 500;
-
-  &:hover {
-    color: $color-secundario !important;
-  }
-  &.active {
-    color: $color-secundario !important;
-    font-weight: 600;
+  .navbar-brand { color: $color-beige !important; font-weight: bold; }
+  .nav-link { 
+    color: $color-beige !important; font-weight: 500; 
+    &:hover, &.active { color: $color-secundario !important; }
   }
 }
 
-/* 🔹 Botones */
-.btn,
-.btn-primary,
-.btn-primary:focus,
-.btn-primary:active,
-.btn-primary:visited {
+// 🔹 Hero
+.hero {
+  min-height: 80vh;
+  display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+  color: $color-beige;
+  background-image: url('../assets/img/hero-background.jpg');
+  background-attachment: fixed; background-size: cover; background-position: center;
+
+  .hero-logo { max-width: 180px; margin-bottom: 1rem; }
+  .hero-title { margin-bottom: 1rem; }
+  .hero-btn { margin-top: 1rem; }
+}
+
+// 🔹 Botones
+.btn-primary, .btn-outline-primary {
   background-color: $color-principal !important;
   border-color: $color-principal !important;
   color: $color-beige !important;
-}
-
-.btn-primary:hover {
-  background-color: darken($color-principal, 8%) !important;
-  border-color: darken($color-principal, 8%) !important;
-}
-
-/* 🔹 Footer */
-footer,
-footer.bg-primary {
-  background-color: $color-principal !important;
-  color: $color-beige !important;
-}
-
-footer a {
-  color: $color-secundario !important;
-  font-weight: bold;
-
+  transition: all 0.3s ease;
   &:hover {
-    color: lighten($color-secundario, 10%) !important;
+    background-color: adjust-color($color-principal, $lightness: -8%) !important;
+    border-color: adjust-color($color-principal, $lightness: -8%) !important;
+  }
+}
+
+// 🔹 Secciones y animaciones
+section { padding: 4rem 0; }
+.fade-in { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; &.visible { opacity: 1; transform: translateY(0); } }
+
+// 🔹 Secciones específicas
+.servicios .section-title,
+.opiniones-section .section-title {
+  color: $color-principal;
+}
+
+// 🔹 Opiniones
+.opiniones-section { background-color: $color-beige; }
+.opiniones {
+  background-color: adjust-color($color-beige, $lightness: 5%);
+  border-left: 5px solid $color-verde;
+  padding: 1rem; margin-bottom: 1.5rem; border-radius: 8px;
+  p { margin: 0; font-style: italic; }
+  strong { display: block; margin-top: 0.5rem; color: $color-verde; }
+}
+
+// 🔹 Footer
+footer {
+  background-color: $color-principal;
+  color: $color-beige;
+  text-align: center;
+  padding: 2rem 0;
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .instagram-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    img {
+      width: 40px;
+      height: 40px;
+    }
+    &:hover { transform: scale(1.2); }
+  }
+
+  .follow-text {
+    color: $color-secundario;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
   }
 }
 

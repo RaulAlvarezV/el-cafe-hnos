@@ -2,31 +2,23 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>El Café Hermanos - Distribuidora Oficial</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
 
-  <!-- Header con logo centrado -->
-  <header class="bg-primary text-white py-4 text-center">
+  <!-- Navbar sticky-top -->
+  <nav class="navbar navbar-expand-lg sticky-top">
     <div class="container">
-      <img src="./assets/img/El café Hermanos LOGO.png" alt="El Café Hermanos" class="logo-main mb-3">
-      <h1 class="fw-bold">El Café Hermanos</h1>
-      <p class="lead">Distribuidores oficiales de Café 5 Hispanos en Mendoza</p>
-    </div>
-  </header>
-
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Inicio</a>
+      <a class="navbar-brand fw-bold" href="index.html">El Café Hermanos</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
           <li class="nav-item"><a class="nav-link" href="servicios.html">Servicios</a></li>
           <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
@@ -36,62 +28,57 @@
     </div>
   </nav>
 
-  <!-- Hero -->
-  <section class="hero text-center text-white d-flex align-items-center justify-content-center">
-    <div class="container">
-      <h2 class="display-4 fw-bold">El sabor que une a Mendoza</h2>
-      <a href="contacto.html" class="btn btn-warning btn-lg mt-3">Contáctanos</a>
+  <!-- Hero Parallax -->
+  <section class="hero">
+    <div class="container hero-content fade-in">
+      <img src="./assets/img/El café Hermanos LOGO.png" alt="El Café Hermanos" class="hero-logo fade-in logo-animation">
+      <h2 class="fade-in hero-title">El sabor que une a Mendoza</h2>
+      <a href="contacto.html" class="btn btn-primary hero-btn fade-in">Contáctanos</a>
     </div>
   </section>
 
   <!-- Servicios destacados -->
-  <section class="py-5">
+  <section class="servicios">
     <div class="container text-center">
-      <h2 class="mb-4 text-primary">Nuestros Servicios</h2>
+      <h2 class="mb-5 fade-in section-title">Nuestros Servicios</h2>
       <div class="row g-4">
-        <div class="col-md-3">
-          <a href="venta.html" class="btn btn-outline-primary w-100 py-3">Venta de Café</a>
+        <div class="col-md-3 fade-in">
+          <a href="venta.html" class="btn btn-primary w-100 py-3">Venta de Café</a>
         </div>
-        <div class="col-md-3">
-          <a href="cafeteras.html" class="btn btn-outline-primary w-100 py-3">Cafeteras</a>
+        <div class="col-md-3 fade-in">
+          <a href="cafeteras.html" class="btn btn-primary w-100 py-3">Cafeteras</a>
         </div>
-        <div class="col-md-3">
-          <a href="capacitacion.html" class="btn btn-outline-primary w-100 py-3">Capacitación</a>
+        <div class="col-md-3 fade-in">
+          <a href="capacitacion.html" class="btn btn-primary w-100 py-3">Capacitación</a>
         </div>
-        <div class="col-md-3">
-          <a href="asesoramiento.html" class="btn btn-outline-primary w-100 py-3">Asesoramiento</a>
+        <div class="col-md-3 fade-in">
+          <a href="asesoramiento.html" class="btn btn-primary w-100 py-3">Asesoramiento</a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Opiniones de Clientes -->
-  <section class="py-5 bg-light">
-    <div class="container text-center">
-      <h2 class="mb-4 text-primary">Opiniones de Nuestros Clientes</h2>
+  <section class="opiniones-section">
+    <div class="container">
+      <h2 class="mb-5 text-center fade-in section-title">Opiniones de Nuestros Clientes</h2>
       <div class="row g-4">
-        <div class="col-md-4">
-          <div class="card shadow-sm h-100">
-            <div class="card-body">
-              <p class="card-text">“El mejor café que probé en Mendoza, la calidad es excelente y la atención increíble.”</p>
-              <h6 class="fw-bold mt-3">— Laura G.</h6>
-            </div>
+        <div class="col-md-4 fade-in">
+          <div class="opiniones">
+            <p>“El mejor café que probé en Mendoza, la calidad es excelente y la atención increíble.”</p>
+            <strong>— Laura G.</strong>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card shadow-sm h-100">
-            <div class="card-body">
-              <p class="card-text">“Las cafeteras en alquiler me facilitaron abrir mi negocio sin tanta inversión inicial.”</p>
-              <h6 class="fw-bold mt-3">— Martín R.</h6>
-            </div>
+        <div class="col-md-4 fade-in">
+          <div class="opiniones">
+            <p>“Las cafeteras en alquiler me facilitaron abrir mi negocio sin tanta inversión inicial.”</p>
+            <strong>— Martín R.</strong>
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="card shadow-sm h-100">
-            <div class="card-body">
-              <p class="card-text">“Gracias a la capacitación mi equipo ahora sabe preparar cafés como profesionales.”</p>
-              <h6 class="fw-bold mt-3">— Sofía P.</h6>
-            </div>
+        <div class="col-md-4 fade-in">
+          <div class="opiniones">
+            <p>“Gracias a la capacitación mi equipo ahora sabe preparar cafés como profesionales.”</p>
+            <strong>— Sofía P.</strong>
           </div>
         </div>
       </div>
@@ -99,15 +86,30 @@
   </section>
 
   <!-- Footer con Instagram -->
-  <footer class="bg-primary text-white text-center py-3">
+  <footer>
     <div class="container">
       <p class="mb-1">&copy; 2025 El Café Hermanos - Mendoza | Distribuidores Oficiales de Café 5 Hispanos</p>
-      <a href="https://www.instagram.com/elcafehermanos/" target="_blank" class="text-warning fw-bold">
-        Síguenos en Instagram
+      <a href="https://www.instagram.com/elcafehermanos/" target="_blank" class="instagram-link">
+        <img src="./assets/icons/instagram.svg" alt="Instagram">
       </a>
+      <span class="follow-text">Síguenos en Instagram</span>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const faders = document.querySelectorAll('.fade-in');
+      const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+      const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        });
+      }, appearOptions);
+      faders.forEach(fader => appearOnScroll.observe(fader));
+    });
+  </script>
 </body>
 </html>

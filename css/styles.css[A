@@ -10,15 +10,16 @@ h1, h2, h3, h4, h5 {
   font-weight: 700;
 }
 
-a, .nav-link, .btn, .btn-outline-primary {
-  color: #ffc54c !important;
+a {
+  text-decoration: none;
+  color: #ffc54c;
 }
-a:hover, .nav-link:hover, .btn:hover, .btn-outline-primary:hover {
-  color: rgb(255, 180.4748603352, 25) !important;
+a:hover {
+  color: rgb(255, 180.4748603352, 25);
 }
 
 .navbar {
-  background-color: #683015 !important;
+  background-color: #683015;
 }
 .navbar .navbar-brand {
   color: #f6f7d4 !important;
@@ -45,26 +46,34 @@ a:hover, .nav-link:hover, .btn:hover, .btn-outline-primary:hover {
   background-size: cover;
   background-position: center;
 }
-.hero .hero-logo {
+
+.hero-logo {
   max-width: 180px;
   margin-bottom: 1rem;
 }
-.hero .hero-title {
-  margin-bottom: 1rem;
-}
-.hero .hero-btn {
+
+.hero-btn {
   margin-top: 1rem;
 }
 
-.btn-primary, .btn-outline-primary {
-  background-color: #683015 !important;
-  border-color: #683015 !important;
-  color: #f6f7d4 !important;
+.hero .hero-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: #683015;
+  border-color: #683015;
+  color: #f6f7d4;
   transition: all 0.3s ease;
 }
-.btn-primary:hover, .btn-outline-primary:hover {
-  background-color: rgb(70.0544, 32.3328, 14.1456) !important;
-  border-color: rgb(70.0544, 32.3328, 14.1456) !important;
+.btn-primary:hover {
+  background-color: rgb(70.0544, 32.3328, 14.1456);
+  border-color: rgb(70.0544, 32.3328, 14.1456);
 }
 
 section {
@@ -79,15 +88,6 @@ section {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-.servicios .section-title,
-.opiniones-section .section-title {
-  color: #683015;
-}
-
-.opiniones-section {
-  background-color: #f6f7d4;
 }
 
 .opiniones {
@@ -111,32 +111,32 @@ footer {
   background-color: #683015;
   color: #f6f7d4;
   text-align: center;
-  padding: 2rem 0;
+  padding: 1.5rem 0;
 }
+footer a.instagram-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #ffc54c;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+footer a.instagram-link:hover {
+  color: rgb(255, 221.7877094972, 152.5);
+  transform: scale(1.05);
+}
+footer a.instagram-link img {
+  width: 24px;
+  height: 24px;
+}
+
 footer .container {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   gap: 0.5rem;
 }
-footer .instagram-link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.3s ease;
-}
-footer .instagram-link img {
-  width: 40px;
-  height: 40px;
-}
-footer .instagram-link:hover {
-  transform: scale(1.2);
-}
-footer .follow-text {
-  color: #ffc54c;
-  font-weight: bold;
-  font-size: 1.2rem;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-}
 
-/*# sourceMappingURL=styles.css.map */
+/*# sourceMappingURL=styles.css%5BA.map */

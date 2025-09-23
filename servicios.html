@@ -2,28 +2,22 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Servicios | El Café Hermanos</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
 
-  <header class="bg-primary text-white py-4 text-center">
+  <nav class="navbar navbar-expand-lg navbar bg-primary sticky-top">
     <div class="container">
-      <img src="./assets/img/El café Hermanos LOGO.png" alt="El Café Hermanos" class="logo-main mb-3">
-      <h1 class="fw-bold">Nuestros Servicios</h1>
-    </div>
-  </header>
-
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">Inicio</a>
+      <a class="navbar-brand fw-bold" href="index.html">El Café Hermanos</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
           <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
           <li class="nav-item"><a class="nav-link active" href="servicios.html">Servicios</a></li>
           <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
@@ -33,25 +27,55 @@
     </div>
   </nav>
 
-  <main class="py-5">
+  <section class="hero">
+    <div class="container hero-content fade-in">
+      <img src="./assets/img/El café Hermanos LOGO.png" alt="El Café Hermanos" class="hero-logo fade-in" style="animation-delay:0.2s;">
+      <h2 class="fade-in" style="animation-delay:0.4s;">Nuestros Servicios</h2>
+      <p class="fade-in" style="animation-delay:0.5s;">Todo lo que necesitas para tu cafetería en un solo lugar.</p>
+    </div>
+  </section>
+
+  <section class="py-5 fade-in" style="animation-delay:0.6s;">
     <div class="container text-center">
-      <h2 class="mb-4 text-primary">Lo que ofrecemos</h2>
       <div class="row g-4">
-        <div class="col-md-3"><a href="venta.html" class="btn btn-outline-primary w-100 py-3">Venta de Café</a></div>
-        <div class="col-md-3"><a href="cafeteras.html" class="btn btn-outline-primary w-100 py-3">Cafeteras</a></div>
-        <div class="col-md-3"><a href="capacitacion.html" class="btn btn-outline-primary w-100 py-3">Capacitación</a></div>
-        <div class="col-md-3"><a href="asesoramiento.html" class="btn btn-outline-primary w-100 py-3">Asesoramiento</a></div>
+        <div class="col-md-3">
+          <a href="venta.html" class="btn btn-outline-primary w-100 py-3">Venta de Café</a>
+        </div>
+        <div class="col-md-3">
+          <a href="cafeteras.html" class="btn btn-outline-primary w-100 py-3">Cafeteras</a>
+        </div>
+        <div class="col-md-3">
+          <a href="capacitacion.html" class="btn btn-outline-primary w-100 py-3">Capacitación</a>
+        </div>
+        <div class="col-md-3">
+          <a href="asesoramiento.html" class="btn btn-outline-primary w-100 py-3">Asesoramiento</a>
+        </div>
       </div>
     </div>
-  </main>
+  </section>
 
-  <footer class="bg-primary text-white text-center py-3">
+  <footer>
     <div class="container">
       <p class="mb-1">&copy; 2025 El Café Hermanos - Mendoza</p>
-      <a href="https://www.instagram.com/elcafehermanos/" target="_blank" class="text-warning fw-bold">Síguenos en Instagram</a>
+      <a href="https://www.instagram.com/elcafehermanos/" target="_blank" class="instagram-link">
+        <img src="./assets/icons/instagram.svg" alt="Instagram"> Síguenos en Instagram
+      </a>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const faders = document.querySelectorAll('.fade-in');
+    const appearOnScroll = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+    faders.forEach(fader => appearOnScroll.observe(fader));
+  </script>
+
 </body>
 </html>
+
