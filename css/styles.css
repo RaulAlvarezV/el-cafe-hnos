@@ -20,16 +20,75 @@ a:hover, .nav-link:hover, .btn:hover, .btn-outline-primary:hover {
 .navbar {
   background-color: #683015 !important;
 }
+.navbar .logo-cafe {
+  height: 1.8rem;
+  width: auto;
+  margin-right: 0.8rem;
+  vertical-align: middle;
+}
 .navbar .navbar-brand {
   color: #f6f7d4 !important;
   font-weight: bold;
+  margin-right: 1rem;
+  transition: color 0.3s ease;
+}
+.navbar .navbar-brand:hover {
+  color: #ffc54c !important;
 }
 .navbar .nav-link {
   color: #f6f7d4 !important;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 .navbar .nav-link:hover, .navbar .nav-link.active {
   color: #ffc54c !important;
+}
+.navbar .nav-item.dropdown {
+  position: relative;
+}
+.navbar .nav-item.dropdown .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 10rem;
+  z-index: 2000;
+  background-color: #683015;
+  border: none;
+  margin: 0;
+  padding: 0.4rem 0;
+  border-radius: 8px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+  pointer-events: none;
+}
+.navbar .nav-item.dropdown .dropdown-menu .dropdown-item {
+  color: #f6f7d4 !important;
+  transition: color 0.3s ease, background-color 0.18s ease;
+  padding: 0.6rem 1.1rem;
+}
+.navbar .nav-item.dropdown .dropdown-menu .dropdown-item:hover {
+  background-color: rgba(255, 197, 76, 0.08);
+  color: #ffc54c !important;
+}
+.navbar .nav-item.dropdown .dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  background: transparent;
+}
+.navbar .nav-item.dropdown:hover .dropdown-menu,
+.navbar .nav-item.dropdown .dropdown-menu:hover {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .hero {
@@ -79,11 +138,6 @@ section {
 .fade-in.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-.servicios .section-title,
-.opiniones-section .section-title {
-  color: #683015;
 }
 
 .opiniones-section {
@@ -137,45 +191,6 @@ footer .follow-text {
   font-weight: bold;
   font-size: 1.2rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
-}
-
-.dropdown-menu {
-  background-color: #683015;
-  border: none;
-}
-.dropdown-menu .dropdown-item {
-  color: #f6f7d4 !important;
-  font-weight: 500;
-}
-.dropdown-menu .dropdown-item:hover {
-  background-color: rgb(70.0544, 32.3328, 14.1456);
-  color: #ffc54c !important;
-}
-
-.logo-cafe {
-  height: 2.5rem;
-  width: auto;
-  margin-right: 0.8rem;
-  vertical-align: middle;
-}
-
-.navbar {
-  background-color: #683015 !important;
-}
-.navbar .navbar-brand {
-  color: #f6f7d4 !important;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-.navbar .navbar-brand:hover {
-  color: #ffc54c !important;
-}
-.navbar .nav-link {
-  color: #f6f7d4 !important;
-  font-weight: 500;
-}
-.navbar .nav-link:hover, .navbar .nav-link.active {
-  color: #ffc54c !important;
 }
 
 /*# sourceMappingURL=styles.css.map */
