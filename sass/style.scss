@@ -7,15 +7,22 @@ $color-beige: #f6f7d4; // Beige claro
 // 🔤 Tipografía
 $font-stack: "Segoe UI", Arial, sans-serif;
 
-// 🔹 Global
 body {
   font-family: $font-stack;
-  background-color: $color-beige;
   color: $color-principal;
   line-height: 1.6;
+  background: 
+    linear-gradient(rgba($color-beige, 0.9), rgba($color-beige, 0.9)),
+    url('../assets/img/fondo.png'); // PNG en lugar de JPG
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
-h1, h2, h3, h4, h5 {
+
+
+h1, h2, h3, h4, h5, p {
   color: $color-principal;
   font-weight: 700;
 }

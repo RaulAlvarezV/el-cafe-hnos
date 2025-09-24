@@ -1,11 +1,15 @@
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #f6f7d4;
   color: #683015;
   line-height: 1.6;
+  background: linear-gradient(rgba(246, 247, 212, 0.9), rgba(246, 247, 212, 0.9)), url("../assets/img/fondo.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, p {
   color: #683015;
   font-weight: 700;
 }
