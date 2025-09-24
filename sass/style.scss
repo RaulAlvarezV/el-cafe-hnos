@@ -114,3 +114,46 @@ footer {
   }
 }
 
+// 🔹 Dropdown en navbar
+.dropdown-menu {
+  background-color: $color-principal;
+  border: none;
+  .dropdown-item {
+    color: $color-beige !important;
+    font-weight: 500;
+    &:hover {
+      background-color: adjust-color($color-principal, $lightness: -8%);
+      color: $color-secundario !important;
+    }
+  }
+}
+
+.logo-cafe {
+  height: 2.5rem; 
+  width: auto;
+  margin-right: 0.8rem; // antes era 0.5rem, ahora un poco más
+  vertical-align: middle;
+}
+
+.navbar {
+  background-color: $color-principal !important;
+
+  .navbar-brand {
+    color: $color-beige !important;
+    font-weight: bold;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $color-secundario !important;
+    }
+  }
+
+  .nav-link { 
+    color: $color-beige !important; 
+    font-weight: 500; 
+    &:hover, &.active { color: $color-secundario !important; }
+  }
+}
+
+
+

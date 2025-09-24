@@ -139,4 +139,43 @@ footer .follow-text {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
+.dropdown-menu {
+  background-color: #683015;
+  border: none;
+}
+.dropdown-menu .dropdown-item {
+  color: #f6f7d4 !important;
+  font-weight: 500;
+}
+.dropdown-menu .dropdown-item:hover {
+  background-color: rgb(70.0544, 32.3328, 14.1456);
+  color: #ffc54c !important;
+}
+
+.logo-cafe {
+  height: 2.5rem;
+  width: auto;
+  margin-right: 0.8rem;
+  vertical-align: middle;
+}
+
+.navbar {
+  background-color: #683015 !important;
+}
+.navbar .navbar-brand {
+  color: #f6f7d4 !important;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+.navbar .navbar-brand:hover {
+  color: #ffc54c !important;
+}
+.navbar .nav-link {
+  color: #f6f7d4 !important;
+  font-weight: 500;
+}
+.navbar .nav-link:hover, .navbar .nav-link.active {
+  color: #ffc54c !important;
+}
+
 /*# sourceMappingURL=styles.css.map */
