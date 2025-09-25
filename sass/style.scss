@@ -13,15 +13,14 @@ body {
   line-height: 1.6;
   background: 
     linear-gradient(rgba($color-beige, 0.9), rgba($color-beige, 0.9)),
-    url('../assets/img/fondo.png'); // PNG en lugar de JPG
+    url('../assets/img/fondo.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center;
 }
 
-
-
+// 🔹 Titulos y texto
 h1, h2, h3, h4, h5, p {
   color: $color-principal;
   font-weight: 700;
@@ -64,25 +63,21 @@ a, .nav-link, .btn, .btn-outline-primary {
     }
   }
 
-  // Dropdown fix
   .nav-item.dropdown {
     position: relative;
 
     .dropdown-menu {
       position: absolute;
-      top: 100%; // pegado al toggle
+      top: 100%;
       left: 0;
       min-width: 10rem;
       z-index: 2000;
-
       background-color: $color-principal;
       border: none;
       margin: 0;
       padding: 0.4rem 0;
-
       border-radius: 8px;
       box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-
       visibility: hidden;
       opacity: 0;
       transform: translateY(6px);
@@ -100,19 +95,17 @@ a, .nav-link, .btn, .btn-outline-primary {
         }
       }
 
-      // puente invisible anti-gap
       &::before {
         content: "";
         position: absolute;
-        top: -10px; // se extiende hacia arriba
+        top: -10px;
         left: 0;
         width: 100%;
-        height: 10px; // área invisible
+        height: 10px;
         background: transparent;
       }
     }
 
-    // Mostrar menú en hover
     &:hover .dropdown-menu,
     .dropdown-menu:hover {
       display: block;
@@ -164,14 +157,50 @@ section { padding: 4rem 0; }
   &.visible { opacity: 1; transform: translateY(0); } 
 }
 
-// 🔹 Opiniones
-.opiniones-section { background-color: $color-beige; }
-.opiniones {
-  background-color: adjust-color($color-beige, $lightness: 5%);
-  border-left: 5px solid $color-verde;
-  padding: 1rem; margin-bottom: 1.5rem; border-radius: 8px;
-  p { margin: 0; font-style: italic; }
-  strong { display: block; margin-top: 0.5rem; color: $color-verde; }
+// 🔹 Cards catálogo
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.18);
+    animation: pulse 0.8s ease;
+  }
+
+  .card-img-top {
+    max-height: 150px;
+    width: auto;
+    margin: 0 auto;
+    display: block;
+    object-fit: contain;
+    padding: 1rem;
+    background: transparent;
+  }
+
+  .card-body {
+    background-color: rgba($color-beige, 0.8);
+    padding: 1rem 1.2rem;
+    text-align: center;
+
+    h5 {
+      font-weight: bold;
+      color: $color-principal;
+      margin-bottom: 0.5rem;
+      font-size: 1.6rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: black;
+      // font-style: italic;
+      font-weight: lighter;
+    }
+
+  }
 }
 
 // 🔹 Footer
@@ -207,3 +236,44 @@ footer {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
   }
 }
+
+// 🔹 Animaciones adicionales
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+// 🔹 Catálogo - títulos
+.section-title {
+  font-size: 2rem;
+  color: $color-principal;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 60%;
+    height: 4px;
+    background-color: $color-secundario;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+  }
+}
+
+h3 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: $color-principal;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &::before {
+    content: "☕ ";
+    color: $color-secundario;
+  }
+}
+

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   color: #683015;
@@ -144,25 +145,42 @@ section {
   transform: translateY(0);
 }
 
-.opiniones-section {
-  background-color: #f6f7d4;
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-
-.opiniones {
-  background-color: rgb(250.5, 251, 233.5);
-  border-left: 5px solid #056c34;
-  padding: 1rem;
-  margin-bottom: 1.5rem;
-  border-radius: 8px;
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  animation: pulse 0.8s ease;
 }
-.opiniones p {
-  margin: 0;
-  font-style: italic;
-}
-.opiniones strong {
+.card .card-img-top {
+  max-height: 150px;
+  width: auto;
+  margin: 0 auto;
   display: block;
-  margin-top: 0.5rem;
-  color: #056c34;
+  object-fit: contain;
+  padding: 1rem;
+  background: transparent;
+}
+.card .card-body {
+  background-color: rgba(246, 247, 212, 0.8);
+  padding: 1rem 1.2rem;
+  text-align: center;
+}
+.card .card-body h5 {
+  font-weight: bold;
+  color: #683015;
+  margin-bottom: 0.5rem;
+  font-size: 1.6rem;
+}
+.card .card-body p {
+  font-size: 1.2rem;
+  color: black;
+  font-weight: lighter;
 }
 
 footer {
@@ -195,6 +213,47 @@ footer .follow-text {
   font-weight: bold;
   font-size: 1.2rem;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.section-title {
+  font-size: 2rem;
+  color: #683015;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+.section-title::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 4px;
+  background-color: #ffc54c;
+  margin: 0.5rem auto 0;
+  border-radius: 2px;
+}
+
+h3 {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #683015;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+h3::before {
+  content: "☕ ";
+  color: #ffc54c;
 }
 
 /*# sourceMappingURL=styles.css.map */
