@@ -1,3 +1,4 @@
+
 // 🎨 Paleta de colores
 $color-principal: #683015; // Marrón café
 $color-secundario: #ffc54c; // Dorado
@@ -217,7 +218,7 @@ footer {
     gap: 0.5rem;
   }
 
-  .instagram-link {
+  .instagram-link, .whatsapp-link {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -229,8 +230,14 @@ footer {
     &:hover { transform: scale(1.2); }
   }
 
+  .whatsapp-link img {
+    margin-top: 10px;
+    width: 38px;
+    height: 38px;
+  }
+
   .follow-text {
-    color: $color-secundario;
+    color: $color-beige;
     font-weight: bold;
     font-size: 1.2rem;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
@@ -277,3 +284,7 @@ h3 {
   }
 }
 
+// Copyright footer text color
+footer .footer-copyright {
+  color: $color-beige !important;
+}
