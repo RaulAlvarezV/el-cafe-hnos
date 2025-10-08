@@ -120,7 +120,7 @@ a, .nav-link, .btn, .btn-outline-primary {
 
 // 🔹 Hero
 .hero {
-  min-height: 80vh;
+  min-height: 50vh;
   display: flex; 
   flex-direction: column; 
   justify-content: center; 
@@ -201,6 +201,11 @@ section { padding: 4rem 0; }
       font-weight: lighter;
     }
 
+    .resalte {
+      font-style: italic;
+      font-weight: normal;
+    }
+
   }
 }
 
@@ -244,13 +249,6 @@ footer {
   }
 }
 
-// 🔹 Animaciones adicionales
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.04); }
-  100% { transform: scale(1); }
-}
-
 // 🔹 Catálogo - títulos
 .section-title {
   font-size: 2rem;
@@ -288,3 +286,38 @@ h3 {
 footer .footer-copyright {
   color: $color-beige !important;
 }
+
+// 🔹 Animaciones adicionales
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+  100% { transform: scale(1); }
+}
+
+// 🔹 Navbar - ajustes para vista móvil
+@media (max-width: 991.98px) {
+  /* Evita que el collapse ocupe todo el ancho y lo mantiene ajustado al contenido */
+  .navbar-collapse {
+    width: auto !important;
+    background: transparent !important;
+    padding: 0.25rem 0;
+  }
+
+  /* Alinea las opciones a la derecha dentro del collapse */
+  .navbar-collapse .navbar-nav {
+    align-items: flex-end;
+  }
+
+  /* Oculta el menú desplegable de 'Servicios' en móvil (no mostrar submenu) */
+  .navbar-collapse .dropdown-menu {
+    display: none !important;
+  }
+
+  /* Oculta la flecha indicadora del dropdown */
+  .navbar-collapse .dropdown-toggle::after {
+    display: none;
+  }
+}
+
+
+
