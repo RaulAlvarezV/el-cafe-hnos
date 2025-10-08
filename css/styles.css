@@ -119,6 +119,14 @@ a:hover, .nav-link:hover, .btn:hover, .btn-outline-primary:hover {
 .hero .hero-btn {
   margin-top: 1rem;
 }
+.hero .section-title::after {
+  background-color: #ffc54c;
+}
+.hero .section-paragraph {
+  color: #683015;
+  max-width: 900px;
+  margin: 1rem auto 0 auto;
+}
 
 .btn-primary, .btn-outline-primary {
   background-color: #683015 !important;
@@ -153,20 +161,6 @@ section p {
   line-height: 1.6;
   text-align: center;
   font-weight: normal;
-}
-
-.nosotros-text {
-  background-color: #f6f7d4;
-  padding: 1.25rem 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
-  margin: 0.8rem auto 1.5rem auto;
-  max-width: 920px;
-  color: #683015;
-}
-.nosotros-text p {
-  text-align: left;
-  margin: 0 0 0.75rem 0;
 }
 
 .card {
@@ -253,7 +247,8 @@ footer .follow-text {
   color: #683015;
   margin-bottom: 2rem;
   position: relative;
-  display: inline-block;
+  display: block;
+  text-align: center;
 }
 .section-title::after {
   content: "";

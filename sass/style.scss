@@ -135,6 +135,13 @@ a, .nav-link, .btn, .btn-outline-primary {
   .hero-logo { max-width: 180px; margin-bottom: 1rem; }
   .hero-title { margin-bottom: 1rem; }
   .hero-btn { margin-top: 1rem; }
+  
+  // Permitir que los títulos del hero usen el estilo de sección (subrayado dorado)
+  .section-title {
+    &::after { background-color: $color-secundario; }
+  }
+  // Párrafo del hero con color principal para consistencia visual
+  .section-paragraph { color: $color-principal; max-width: 900px; margin: 1rem auto 0 auto; }
 }
 
 // 🔹 Botones
@@ -168,18 +175,6 @@ section {
     text-align: center;
     font-weight: normal;
   }
-}
-
-// Estilo para el bloque de texto de 'Nosotros'
-.nosotros-text {
-  background-color: $color-beige;
-  padding: 1.25rem 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-  margin: 0.8rem auto 1.5rem auto;
-  max-width: 920px;
-  color: $color-principal;
-  p { text-align: left; margin: 0 0 0.75rem 0; }
 }
 
 // 🔹 Cards catálogo
@@ -279,7 +274,8 @@ footer {
   color: $color-principal;
   margin-bottom: 2rem;
   position: relative;
-  display: inline-block;
+  display: block;
+  text-align: center;
 
   &::after {
     content: "";
