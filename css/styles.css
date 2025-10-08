@@ -145,6 +145,30 @@ section {
   transform: translateY(0);
 }
 
+section p {
+  font-size: 1.2rem;
+  color: #683015;
+  max-width: 800px;
+  margin: 0 auto 1.5rem auto;
+  line-height: 1.6;
+  text-align: center;
+  font-weight: normal;
+}
+
+.nosotros-text {
+  background-color: #f6f7d4;
+  padding: 1.25rem 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  margin: 0.8rem auto 1.5rem auto;
+  max-width: 920px;
+  color: #683015;
+}
+.nosotros-text p {
+  text-align: left;
+  margin: 0 0 0.75rem 0;
+}
+
 .card {
   border: none;
   border-radius: 12px;
