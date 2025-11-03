@@ -260,6 +260,22 @@ footer .follow-text {
   border-radius: 2px;
 }
 
+.productos-list .list-group-item {
+  background: transparent !important; /* deja ver el fondo del body */
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.6rem 0;
+}
+.productos-list img {
+  /* Fluid size: min 90px, scales with viewport, max 160px (slightly larger on desktop) */
+  width: clamp(300px, 6.5vw, 160px);
+  height: auto; /* preserve aspect ratio */
+  object-fit: contain;
+  display: block;
+}
+
 h3 {
   font-size: 1.6rem;
   font-weight: bold;
