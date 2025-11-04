@@ -22,6 +22,17 @@ a:hover, .nav-link:hover, .btn:hover, .btn-outline-primary:hover {
   color: rgb(255, 180.4748603352, 25) !important;
 }
 
+.btn-instagram {
+  background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D) !important;
+  border: none !important;
+  color: white !important;
+  transition: opacity 0.3s ease !important;
+}
+.btn-instagram:hover {
+  opacity: 0.9 !important;
+  color: white !important;
+}
+
 .navbar {
   background-color: #683015 !important;
 }
