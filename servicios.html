@@ -6,13 +6,13 @@
   <title>Servicios | El Café Hermanos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="./css/styles.css">
-  <link rel="icon" href="./assets/img/El café Hermanos LOGO.png">
+  <link rel="icon" href="./assets/img/El-cafe-Hermanos-LOGO.png">
 </head>
 <body>
 
 <nav class="navbar navbar-expand-lg sticky-top">
   <div class="container">
-    <img src="./assets/img/El café Hermanos LOGO.png" alt="Logo El Café Hermanos" class="logo-cafe">
+    <img src="./assets/img/El-cafe-Hermanos-LOGO.png" alt="Logo El Café Hermanos" class="logo-cafe">
     <a class="navbar-brand fw-bold" href="index.html">El Café Hermanos</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -46,16 +46,11 @@
   <!-- Hero Parallax -->
   <section class="hero">
     <div class="container hero-content fade-in">
-      <img src="./assets/img/El café Hermanos LOGO.png" alt="El Café Hermanos" class="hero-logo fade-in logo-animation">
+      <img src="./assets/img/El-cafe-Hermanos-LOGO.png" alt="El Café Hermanos" class="hero-logo fade-in logo-animation">
   <h2 class="fade-in hero-title section-title">Nuestros Servicios</h2>
   <p class="fade-in section-paragraph">Todo lo que necesitas para tu cafetería en un solo lugar.</p>
     </div>
-  </section>
-
-  <!-- Servicios destacados -->
-  <section class="servicios">
-    <div class="container text-center">
-      <h2 class="mb-5 fade-in section-title">Servicios Completos</h2>
+    <div class="container text-center mt-3">
       <div class="row g-4">
         <div class="col-md-3 fade-in">
           <a href="venta.html" class="btn btn-primary w-100 py-3">Venta de Café</a>
@@ -72,6 +67,39 @@
       </div>
     </div>
   </section>
+
+
+  <!-- Miniatura animada para abrir el video -->
+  <section class="py-5">
+    <div class="container text-center">
+  <div class="video-thumbnail-container fade-in" style="cursor: pointer; max-width: 315px; margin: 0 auto; display: inline-block; position: relative;" data-bs-toggle="modal" data-bs-target="#nuevoVideoModal">
+        <video src="assets/videos/Hook “Lo que nadie te cuenta antes de elegir café”.mp4" class="img-fluid rounded shadow" style="width: 100%; object-fit: cover;" autoplay loop muted playsinline></video>
+        <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;">
+          <svg width="36" height="36" viewBox="0 0 36 36">
+            <circle cx="18" cy="18" r="18" fill="rgba(0,0,0,0.5)"/>
+            <polygon points="14,11 26,18 14,25" fill="#fff"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nuevo Modal de Video -->
+  <div class="modal fade" id="nuevoVideoModal" tabindex="-1" aria-labelledby="nuevoVideoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="width: auto; max-width: none; display: flex; align-items: center; justify-content: center;">
+      <div class="modal-content" style="background: #f6f7d4; border-radius: 1rem; width: auto; max-width: none; display: inline-block;">
+        <div class="modal-header border-0 p-2" style="background: #683015; border-top-left-radius: 1rem; border-top-right-radius: 1rem;">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" style="background: #f6f7d4; border-bottom-left-radius: 1rem; border-bottom-right-radius: 1rem; padding: 0;">
+          <video id="nuevoVideoPlayer" class="w-100" controls autoplay style="max-height:70vh; border-radius: 0 0 1rem 1rem; display: block; margin: 0;">
+            <source src="assets/videos/Lo que nadie te cuenta antes de elegir café.mp4" type="video/mp4">
+            Tu navegador no soporta la reproducción de video.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer con Instagram -->
   <footer>
@@ -91,6 +119,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", function () {
+      // Fade-in animation
       const faders = document.querySelectorAll('.fade-in');
       const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
       const appearOnScroll = new IntersectionObserver(function(entries, observer) {
@@ -101,7 +130,20 @@
         });
       }, appearOptions);
       faders.forEach(fader => appearOnScroll.observe(fader));
+
+      // Pausar video cuando se cierra el modal
+      var nuevoVideoModal = document.getElementById('nuevoVideoModal');
+      var nuevoVideoPlayer = document.getElementById('nuevoVideoPlayer');
+      if(nuevoVideoModal && nuevoVideoPlayer) {
+        nuevoVideoModal.addEventListener('hidden.bs.modal', function () {
+          nuevoVideoPlayer.pause();
+          nuevoVideoPlayer.currentTime = 0;
+        });
+      }
     });
   </script>
 </body>
 </html>
+
+
+

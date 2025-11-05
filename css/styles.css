@@ -34,7 +34,12 @@ a:hover, .nav-link:hover, .btn:hover, .btn-outline-primary:hover {
 }
 
 .navbar {
+  /* background image for navbar (fallback color kept) */
   background-color: #683015 !important;
+  background-image: url("../assets/img/fondo-navbar-footer.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .navbar .logo-cafe {
   height: 1.8rem;
@@ -61,6 +66,15 @@ a:hover, .nav-link:hover, .btn:hover, .btn-outline-primary:hover {
 }
 .navbar .nav-item.dropdown {
   position: relative;
+}
+.footer {
+  /* Footer background using the same image */
+  background-color: #683015;
+  background-image: url("../assets/img/fondo-navbar-footer.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #f6f7d4;
 }
 .navbar .nav-item.dropdown .dropdown-menu {
   position: absolute;
@@ -120,6 +134,12 @@ a:hover, .nav-link:hover, .btn:hover, .btn-outline-primary:hover {
   background-size: cover;
   background-position: center;
 }
+
+/* Reduce spacing between hero and the immediate following section.py-5 */
+.hero + .py-5 {
+  padding-top: 0.5rem !important;
+}
+
 .hero .hero-logo {
   max-width: 300px;
   margin-bottom: 1rem;
@@ -218,6 +238,10 @@ section p {
 
 footer {
   background-color: #683015;
+  background-image: url("../assets/img/fondo-navbar-footer.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
   color: #f6f7d4;
   text-align: center;
   padding: 2rem 0;
