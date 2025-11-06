@@ -73,7 +73,7 @@
   <section class="py-5">
     <div class="container text-center">
   <div class="video-thumbnail-container fade-in" style="cursor: pointer; max-width: 315px; margin: 0 auto; display: inline-block; position: relative;" data-bs-toggle="modal" data-bs-target="#nuevoVideoModal">
-        <video src="assets/videos/Hook “Lo que nadie te cuenta antes de elegir café”.mp4" class="img-fluid rounded shadow" style="width: 100%; object-fit: cover;" autoplay loop muted playsinline></video>
+    <video src="assets/videos/Hook “Lo que nadie te cuenta antes de elegir café”.mp4" class="img-fluid rounded shadow" style="width: 100%; object-fit: cover;" autoplay loop muted playsinline></video>
         <div class="play-button" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none;">
           <svg width="36" height="36" viewBox="0 0 36 36">
             <circle cx="18" cy="18" r="18" fill="rgba(0,0,0,0.5)"/>
@@ -92,9 +92,8 @@
           <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" style="background: #f6f7d4; border-bottom-left-radius: 1rem; border-bottom-right-radius: 1rem; padding: 0;">
-          <video id="nuevoVideoPlayer" class="w-100" controls autoplay style="max-height:70vh; border-radius: 0 0 1rem 1rem; display: block; margin: 0;">
+          <video id="nuevoVideoPlayer" class="w-100" controls disablepictureinpicture controlsList="nodownload noremoteplayback" style="max-height:70vh; border-radius: 0 0 1rem 1rem; display: block; margin: 0;">
             <source src="assets/videos/Lo que nadie te cuenta antes de elegir café.mp4" type="video/mp4">
-            Tu navegador no soporta la reproducción de video.
           </video>
         </div>
       </div>
@@ -139,6 +138,23 @@
           nuevoVideoPlayer.pause();
           nuevoVideoPlayer.currentTime = 0;
         });
+      }
+
+      // Disable Picture-in-Picture button where supported and ensure controlsList
+      try {
+        const thumbVideo = document.querySelector('.video-thumbnail-container video');
+        if (thumbVideo) {
+          // autoplay thumbnail is muted so browsers allow autoplay
+          thumbVideo.disablePictureInPicture = true;
+        }
+
+        if (nuevoVideoPlayer) {
+          // prevent picture-in-picture for the modal player and remove download/remote options
+          nuevoVideoPlayer.disablePictureInPicture = true;
+          nuevoVideoPlayer.setAttribute('controlsList', 'nodownload noremoteplayback');
+        }
+      } catch (e) {
+        // not all browsers support these APIs; fail silently
       }
     });
   </script>
