@@ -41,6 +41,59 @@ a:hover, .nav-link:hover, .btn:hover, .btn-outline-primary:hover {
   background-repeat: no-repeat;
   background-position: center;
 }
+
+/* Hamburger menu icon styles */
+.navbar .navbar-toggler {
+  border-color: #f6f7d4 !important;
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.navbar .navbar-toggler-icon {
+  background-image: none !important;
+  position: relative;
+  height: 2px;
+  width: 24px;
+  background-color: #f6f7d4 !important;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.navbar .navbar-toggler-icon::before,
+.navbar .navbar-toggler-icon::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 2px;
+  width: 24px;
+  background-color: #f6f7d4 !important;
+  transition: transform 0.3s ease;
+}
+
+.navbar .navbar-toggler-icon::before {
+  top: -6px;
+}
+
+.navbar .navbar-toggler-icon::after {
+  bottom: -6px;
+}
+
+.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  background-color: transparent !important;
+}
+
+.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::after {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.navbar .navbar-toggler:focus {
+  box-shadow: 0 0 0 0.2rem rgba(246, 247, 212, 0.25) !important;
+}
+
 .navbar .logo-cafe {
   height: 1.8rem;
   width: auto;
