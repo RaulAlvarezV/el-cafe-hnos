@@ -241,6 +241,33 @@ a:hover, .nav-link:hover, .btn:hover, .btn-outline-primary:hover {
   border-color: rgb(70.0544, 32.3328, 14.1456) !important;
 }
 
+/* --- Reglas Corregidas para la Botonera --- */
+
+#botoneraproductos {
+    /* No necesitamos position: relative; ni position: absolute; si usamos margin: auto */
+    /* Dejamos solo el margen inferior para separar la botonera del contenido siguiente */
+    margin-bottom: 2rem; 
+    
+    /* Agregamos padding-bottom para dar espacio entre los botones y la línea */
+    padding-bottom: 2rem; /* Aumentamos el padding para que la línea no quede pegada */
+}
+
+#botoneraproductos::after {
+    /* Propiedades básicas del pseudo-elemento */
+    content: ""; /* Debe ser una cadena vacía */
+    display: block;
+    
+    /* Estilos de la línea: ¡Duplicamos los del .section-title! */
+    width: 60%; /* ANCHO PORCENTUAL IGUAL AL TÍTULO */
+    height: 4px; /* GROSOR IGUAL AL TÍTULO */
+    background-color: #ffc54c; /* COLOR IGUAL AL TÍTULO */
+    border-radius: 2px;
+    
+    /* Centrado y margen: Igual al .section-title, pero ajustando el superior. */
+    /* El 1rem superior separa la línea de los botones. */
+    margin: 1rem auto 0; 
+}
+
 section {
   padding: 4rem 0;
 }
