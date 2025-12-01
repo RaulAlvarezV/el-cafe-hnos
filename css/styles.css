@@ -255,6 +255,28 @@ a:hover, .nav-link:hover, .btn:hover, .btn-outline-primary:hover {
   margin: 1rem auto 0;
 }
 
+#cafeteras .card-img-top {
+  
+  max-height: 400px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  object-fit: contain;
+  padding: 1rem;
+  background: transparent;
+}
+
+#molinos .card-img-top {
+  max-height: 400px;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+  object-fit: contain;
+  padding: 1rem;
+  background: transparent;
+}
+
+
 section {
   padding: 4rem 0;
 }
@@ -295,8 +317,8 @@ section p {
 }
 
 .card .card-img-top {
-  max-height: 150px;
-  width: auto;
+  max-height: 250px;
+  width: 100%;
   margin: 0 auto;
   display: block;
   object-fit: contain;
