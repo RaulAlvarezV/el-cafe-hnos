@@ -14,17 +14,17 @@
   <div class="container">
   <img src="./assets/img/El-cafe-Hermanos-LOGO.png" alt="Logo El Café Hermanos" class="logo-cafe">
     <a class="navbar-brand fw-bold" href="index.html">El Café Hermanos</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegación">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-  <li class="nav-item"><a class="nav-link" href="index.html#nosotros">Nosotros</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#nosotros">Nosotros</a></li>
 
         <!-- Dropdown Servicios -->
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="servicios.html" id="navbarDropdown" role="button">
+          <a class="nav-link dropdown-toggle" href="servicios.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Servicios
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -55,18 +55,52 @@
   <!-- Comercios colaboradores -->
   <section class="py-5">
     <div class="container">
-      <h2 class="mb-5 text-center fade-in section-title">Cafeterías & Comercios</h2>
-      <div class="row g-4">
-        <div class="col-md-4 fade-in">
-          <div class="card h-100">
-            <img src="./assets/img/cafeteria1.jpg" class="card-img-top" alt="Cafetería A">
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6 col-lg-4 fade-in">
+          <div class="card h-100" style="cursor: pointer;" data-bs-toggle="modal" data-bs-target="#videoModalMure">
+            <div class="video-thumbnail-container" style="position: relative; width: 100%; padding-top: 56.25%; overflow: hidden; border-top-left-radius: .5rem; border-top-right-radius: .5rem;">
+              <iframe 
+                src="https://www.youtube.com/embed/V-m7WC8J70o"
+                title="Video Müre"
+                style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+              </iframe>
+            </div>
             <div class="card-body">
-              <h5 class="card-title">Cafetería A</h5>
-              <p class="card-text">Espacio acogedor donde encontrás Santos Crema y Gran Selecto de 5 Hispanos.</p>
+              <img src="assets/img/logo_mure.jpg" alt="Müre Logo" class="mb-3" style="max-width: 150px; border-radius: 50%; object-fit: cover;">
+              <h5 class="card-title"><strong>Müre</strong></h5>
+              <p class="card-text" style="font-style: italic; color: #683015;"><strong>Un espacio acogedor en el corazón de Chacras de Coria, un lugar perfecto para relajarse en el verano.</strong></p>
             </div>
           </div>
         </div>
-        <div class="col-md-4 fade-in">
+
+<div class="modal fade" id="videoModalMure" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 720px; width: 100%;">
+    <div class="modal-content" style="border-radius: 1rem; overflow: hidden;">
+
+      <div class="modal-header border-0 p-2" style="background: #683015;">
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body p-0">
+        <div style="position: relative; width: 100%; padding-top: 56.25%; overflow: hidden;">
+          <iframe 
+            id="videoPlayerMure"
+            src="https://www.youtube.com/embed/V-m7WC8J70o"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+        <!-- <div class="col-md-4 fade-in">
           <div class="card h-100">
             <img src="./assets/img/cafeteria2.jpg" class="card-img-top" alt="Cafetería B">
             <div class="card-body">
@@ -83,13 +117,13 @@
               <p class="card-text">Nuestros clientes eligen Gran Selecto y Santos Bourbon.</p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
 
   <!-- Opiniones de nuestro servicio -->
-  <section class="bg-beige py-5 fade-in" style="animation-delay:0.8s;">
+  <!-- <section class="bg-beige py-5 fade-in" style="animation-delay:0.8s;">
     <div class="container">
       <h2 class="mb-5 text-center fade-in section-title">Opiniones de Comercios que Trabajan con Nosotros</h2>
       <div class="row g-4">
@@ -113,35 +147,35 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Variedades de grano y molidos -->
-  <!-- <section class="py-5">
+  <section class="py-5">
     <div class="container">
       <h2 class="mb-5 text-center fade-in section-title">Variedades Disponibles de Café 5 Hispanos</h2>
       <div class="row g-4">
         <div class="col-md-6 fade-in text-center">
           <h4 class="mt-4">Línea Gastronómica – Granos</h4>
           <ul class="list-group mb-4 productos-list">
-            <li class="list-group-item"><img src="./assets/img/Santos Crema.png" alt="Santos Crema"></li>
-            <li class="list-group-item"><img src="./assets/img/Santos Bourbon.png" alt="Santos Bourbon"></li>
-            <li class="list-group-item"><img src="./assets/img/Grand Selecto.png" alt="Grand Selecto"></li>
-            <li class="list-group-item"><img src="./assets/img/Tostado Expresso.png" alt="Tostado Espresso"></li>
+            <li class="list-group-item"><img src="./assets/img/Santos-Crema.png" alt="Santos Crema"></li>
+            <li class="list-group-item"><img src="./assets/img/Santos-Bourbon.png" alt="Santos Bourbon"></li>
+            <li class="list-group-item"><img src="./assets/img/Grand-Selecto.png" alt="Grand Selecto"></li>
+            <li class="list-group-item"><img src="./assets/img/Tostado-Expresso.png" alt="Tostado Espresso"></li>
             <li class="list-group-item"><img src="./assets/img/CONFE.png" alt="CONFE"></li>
           </ul>
         </div>
         <div class="col-md-6 fade-in text-center">
           <h4 class="mt-4">Línea Hogar – Molidos</h4>
           <ul class="list-group productos-list">
-            <li class="list-group-item"><img src="./assets/img/Molido Suave.png" alt="Molido Suave"></li>
-            <li class="list-group-item"><img src="./assets/img/Molido Intermedio.png" alt="Molido Intermedio"></li>
-            <li class="list-group-item"><img src="./assets/img/Molido Intenso.png" alt="Molido Intenso"></li>
-            <li class="list-group-item"><img src="./assets/img/Torrado Molido.png" alt="Torrado Molido"></li>
+            <li class="list-group-item"><img src="./assets/img/Molido-Suave.png" alt="Molido Suave"></li>
+            <li class="list-group-item"><img src="./assets/img/Molido-Intermedio.png" alt="Molido Intermedio"></li>
+            <li class="list-group-item"><img src="./assets/img/Molido-Intenso.png" alt="Molido Intenso"></li>
+            <li class="list-group-item"><img src="./assets/img/Torrado-Molido.png" alt="Torrado Molido"></li>
           </ul>
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
 
   <!-- Footer con Instagram -->
   <footer>
@@ -171,6 +205,19 @@
         });
       }, appearOptions);
       faders.forEach(fader => appearOnScroll.observe(fader));
+
+      const modalMure = document.getElementById('videoModalMure');
+      const iframeMure = document.getElementById('videoPlayerMure');
+      if (modalMure && iframeMure) {
+        const srcMure = iframeMure.src;
+        modalMure.addEventListener('hidden.bs.modal', function () {
+          iframeMure.src = "";
+          setTimeout(() => { iframeMure.src = srcMure; }, 200);
+        });
+        // Evita Picture-in-Picture y descargas en el iframe
+        iframeMure.disablePictureInPicture = true;
+        iframeMure.setAttribute('controlsList', 'nodownload noremoteplayback');
+      }
     });
   </script>
 

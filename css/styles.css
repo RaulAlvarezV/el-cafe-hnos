@@ -427,7 +427,7 @@ footer .follow-text {
 
 .productos-list img {
   width: clamp(300px, 6.5vw, 160px);
-  height: auto;
+  height: clamp(300px, 6.5vw, 160px);
   object-fit: contain;
   display: block;
 }
