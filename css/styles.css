@@ -489,5 +489,34 @@ footer .footer-copyright {
   }
 }
 
+/* Contenedor personalizado para cafeteras con márgenes laterales */
+.container-cafeteras {
+  max-width: 100%;
+  padding-left: 5%;
+  padding-right: 5%;
+  margin: 0 auto;
+}
 
-/*# sourceMappingURL=styles.css.map */
+/* Media queries para cafeteras en móvil */
+@media (max-width: 767.98px) {
+  .container-cafeteras {
+    padding-left: 4%;
+    padding-right: 4%;
+  }
+  
+  .container-cafeteras .card {
+    margin-bottom: 1rem;
+  }
+  
+  .container-cafeteras .row {
+    margin-bottom: 1.5rem !important;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .container-cafeteras {
+    padding-left: 3%;
+    padding-right: 3%;
+  }
+}
+
