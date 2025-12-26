@@ -248,7 +248,7 @@ function validateCUIT(cuit) {
 
 async function loadProducts() {
   try {
-    const productsRef = collection(db, 'products');
+    const productsRef = collection(db, 'productos');
     const q = query(productsRef, orderBy('nombre', 'asc'));
     const snapshot = await getDocs(q);
     
