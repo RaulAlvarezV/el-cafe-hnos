@@ -1,2 +1,5 @@
 node_modules/
 .env
+
+# Archivos de configuración con credenciales
+js/firebase-config.js
