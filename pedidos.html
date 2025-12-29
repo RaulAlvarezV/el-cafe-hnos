@@ -165,8 +165,20 @@ import {
   orderBy
 } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-// Importar configuración de Firebase desde archivo externo
-import { firebaseConfig } from '/js/firebase-config.js';
+// ========================================
+// CONFIGURACIÓN DE FIREBASE
+// ========================================
+// NOTA: La API key de Firebase puede ser pública si tiene restricciones configuradas
+// Asegúrate de configurar restricciones en Google Cloud Console
+const firebaseConfig = {
+  apiKey: "AIzaSyB-H-Rtse-rheSiMfvt3eY0rjgO_kXAZoU",
+  authDomain: "sistema-de-gestion-elcafehnos.firebaseapp.com",
+  projectId: "sistema-de-gestion-elcafehnos",
+  storageBucket: "sistema-de-gestion-elcafehnos.firebasestorage.app",
+  messagingSenderId: "442068615346",
+  appId: "1:442068615346:web:eefe5efc27ae159f90c9ab",
+  measurementId: "G-DS5R2RC2JM"
+};
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
