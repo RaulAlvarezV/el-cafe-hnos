@@ -213,7 +213,7 @@ a:hover, .nav-link:hover, .btn:hover, .btn-outline-primary:hover {
   align-items: center;
   text-align: center;
   color: #f6f7d4;
-  background-image: url("../assets/img/hero-background.jpg");
+  /* background-image: url("../assets/img/hero-background.jpg"); */
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
