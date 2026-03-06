@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="../css/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="icon" href="../assets/img/El-cafe-Hermanos-LOGO.png">
+  
+  <!-- reCAPTCHA v3 -->
+  <script src="https://www.google.com/recaptcha/api.js?render=6LfVxKEqAAAAAKZp_example_REPLACE_WITH_YOUR_SITE_KEY"></script>
 </head>
 <body>
 
@@ -224,7 +227,8 @@ function validateCUIT(cuit) {
 
 async function loadProducts() {
   try {
-    const productsRef = collection(db, 'productos');
+    // NOTA: Usar 'products' (público) en lugar de 'productos' (requiere auth)
+    const productsRef = collection(db, 'products');
     const q = query(productsRef, orderBy('nombre', 'asc'));
     const snapshot = await getDocs(q);
     
@@ -329,6 +333,15 @@ async function submitOrder(event) {
   showLoading(true);
   
   try {
+    // Obtener token de reCAPTCHA v3
+    let recaptchaToken = null;
+    try {
+      recaptchaToken = await grecaptcha.execute('6LfVxKEqAAAAAKZp_example_REPLACE_WITH_YOUR_SITE_KEY', {action: 'submit_order'});
+    } catch (recaptchaError) {
+      console.warn('reCAPTCHA no disponible:', recaptchaError);
+      // Continuar sin reCAPTCHA (opcional: puedes cambiar esto para requerir reCAPTCHA)
+    }
+    
     // Crear documento en Firestore
     const orderRequestData = {
       customerInput: {
@@ -341,7 +354,8 @@ async function submitOrder(event) {
       status: 'pending',
       createdAt: serverTimestamp(),
       linkedClientId: null,
-      source: 'public_form'
+      source: 'public_form',
+      recaptchaToken: recaptchaToken // Token de reCAPTCHA para verificación
     };
     
     const docRef = await addDoc(collection(db, 'order_requests'), orderRequestData);
