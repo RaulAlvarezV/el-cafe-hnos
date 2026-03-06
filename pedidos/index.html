@@ -227,8 +227,9 @@ function validateCUIT(cuit) {
 
 async function loadProducts() {
   try {
-    // NOTA: Usar 'products' (público) en lugar de 'productos' (requiere auth)
-    const productsRef = collection(db, 'products');
+    // NOTA: Usar 'products_public' (colección pública sincronizada automáticamente)
+    // Esta colección se actualiza automáticamente desde 'products' vía Cloud Functions
+    const productsRef = collection(db, 'products_public');
     const q = query(productsRef, orderBy('nombre', 'asc'));
     const snapshot = await getDocs(q);
     

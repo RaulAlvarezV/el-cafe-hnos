@@ -1,0 +1,318 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ============================================================
+    // FUNCIONES HELPER PARA VALIDACIÓN DE ROLES
+    // ============================================================
+    
+    function isLoggedIn() {
+      return request.auth != null;
+    }
+
+    function getUserRole() {
+      let userDoc = get(/databases/$(database)/documents/usuarios/$(request.auth.uid));
+      return userDoc.data.rol;
+    }
+
+    function isAdmin() {
+      return isLoggedIn() && getUserRole() == "admin";
+    }
+
+    function isEmpleado() {
+      return isLoggedIn() && (
+        getUserRole() == "empleado" || 
+        getUserRole() == "admin"
+      );
+    }
+
+    function isVendedor() {
+      return isLoggedIn() && (
+        getUserRole() == "vendedor" ||
+        getUserRole() == "empleado" ||
+        getUserRole() == "admin"
+      );
+    }
+
+    // ============================================================
+    // VALIDACIONES COMUNES
+    // ============================================================
+    
+    function hasRequiredFields(requiredFields) {
+      return request.resource.data.keys().hasAll(requiredFields);
+    }
+
+    function isValidPedidoStatus(status) {
+      return status == "pendiente" || status == "confirmado" || status == "entregado" || status == "anulado";
+    }
+
+    function isValidPaymentMethod(method) {
+      return method == "efectivo" || method == "transferencia" || method == "tarjeta" || method == "cheque";
+    }
+
+    function emailIsValid() {
+      return request.resource.data.email is string && 
+             request.resource.data.email.size() > 3 &&
+             request.resource.data.email.matches('.*@.*');
+    }
+
+    // ============================================================
+    // COLECCIÓN: USUARIOS
+    // ============================================================
+    
+    match /usuarios/{uid} {
+      allow read: if request.auth.uid == uid || isAdmin();
+      allow create: if request.auth.uid == uid
+        && emailIsValid()
+        && request.resource.data.rol == "empleado"
+        && hasRequiredFields(["email", "rol", "createdAt"])
+        && request.resource.data.createdAt is number;
+      allow update: if request.auth.uid == uid
+        && (
+          !("rol" in request.resource.data) ||
+          request.resource.data.rol == resource.data.rol
+        )
+        || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // ============================================================
+    // COLECCIÓN: CLIENTES
+    // ============================================================
+    
+    match /clientes/{docId} {
+      allow read: if isEmpleado();
+      allow create: if isEmpleado()
+        && hasRequiredFields(["nombre", "createdAt"])
+        && request.resource.data.nombre is string
+        && request.resource.data.nombre.size() > 0;
+      allow update: if isEmpleado() && 
+        (
+          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['saldo', 'updatedAt'])
+        )
+        || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // ============================================================
+    // COLECCIÓN: PRODUCTS (PRIVADA - Solo empleados)
+    // ============================================================
+    
+    match /products/{docId} {
+      allow read: if isLoggedIn();
+      allow create, update, delete: if isAdmin();
+    }
+
+    // ============================================================
+    // COLECCIÓN: PRODUCTS_PUBLIC (PÚBLICA - Solo lectura)
+    // Esta colección se sincroniza automáticamente desde 'products'
+    // vía Cloud Functions. Contiene solo datos públicos necesarios
+    // para el formulario de pedidos.
+    // ============================================================
+    
+    match /products_public/{docId} {
+      // LECTURA PÚBLICA (sin autenticación)
+      allow read: if true;
+      
+      // Solo Cloud Functions pueden escribir (vía Admin SDK)
+      allow write: if false;
+    }
+
+    // ============================================================
+    // COLECCIÓN: PRODUCTOS (Si existe como legacy)
+    // ============================================================
+    
+    match /productos/{docId} {
+      allow read: if isLoggedIn();
+      allow create, update, delete: if isAdmin();
+    }
+
+    // ============================================================
+    // COLECCIÓN: STOCK
+    // ============================================================
+    
+    match /stock/{docId} {
+      allow read: if isLoggedIn();
+      allow create: if isAdmin();
+      allow update: if isEmpleado()
+        && request.resource.data.keys().hasAll(["productoId", "cantidad", "ultimaActualizacion"])
+        && request.resource.data.productoId is string
+        && request.resource.data.cantidad is number
+        && request.resource.data.ultimaActualizacion is number;
+      allow delete: if isAdmin();
+    }
+
+    // ============================================================
+    // COLECCIÓN: PEDIDOS
+    // ============================================================
+    
+    match /pedidos/{docId} {
+      allow read: if isLoggedIn();
+      allow create: if isEmpleado()
+        && hasRequiredFields(["clienteId", "estado", "items", "total", "createdAt"])
+        && request.resource.data.clienteId is string
+        && request.resource.data.items is list
+        && request.resource.data.items.size() > 0
+        && request.resource.data.total is number
+        && request.resource.data.total >= 0
+        && isValidPedidoStatus(request.resource.data.estado)
+        && (!('totalPagado' in request.resource.data) || request.resource.data.totalPagado is number);
+      allow update: if isEmpleado()
+        && request.resource.data.clienteId is string
+        && request.resource.data.total is number
+        && request.resource.data.total >= 0
+        && isValidPedidoStatus(request.resource.data.estado)
+        && (!('totalPagado' in request.resource.data) || request.resource.data.totalPagado is number)
+        && (!('updatedAt' in request.resource.data) || request.resource.data.updatedAt is number);
+      allow delete: if isAdmin()
+        && (!('totalPagado' in resource.data) || resource.data.totalPagado == 0);
+    }
+
+    // ============================================================
+    // COLECCIÓN: PEDIDOS_ITEMS
+    // ============================================================
+    
+    match /pedidos_items/{docId} {
+      allow read: if isLoggedIn();
+      allow create: if isEmpleado();
+      allow update: if false;
+      allow delete: if isAdmin();
+    }
+
+    // ============================================================
+    // COLECCIÓN: PAGOS
+    // ============================================================
+    
+    match /pagos/{docId} {
+      allow read: if isLoggedIn();
+      allow create: if isEmpleado()
+        && hasRequiredFields(["pedidoId", "clienteId", "monto", "metodoPago", "fecha", "createdAt"])
+        && request.resource.data.pedidoId is string
+        && request.resource.data.clienteId is string
+        && request.resource.data.monto is number
+        && request.resource.data.monto > 0
+        && request.resource.data.fecha is string
+        && request.resource.data.createdAt is number
+        && isValidPaymentMethod(request.resource.data.metodoPago);
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // ============================================================
+    // COLECCIÓN: COUNTERS
+    // ============================================================
+    
+    match /counters/{docId} {
+      allow read: if isLoggedIn();
+      allow create: if isEmpleado();
+      allow update: if isEmpleado();
+      allow delete: if isAdmin();
+    }
+
+    // ============================================================
+    // COLECCIÓN: LOGS
+    // ============================================================
+    
+    match /logs/{logId} {
+      allow read: if isAdmin();
+      allow create: if isLoggedIn();
+      allow update: if false;
+      allow delete: if isAdmin();
+    }
+
+    // ============================================================
+    // COLECCIÓN: AUDIT_LOGS
+    // ============================================================
+    
+    match /audit_logs/{logId} {
+      allow read: if isAdmin();
+      allow create: if isLoggedIn()
+        && hasRequiredFields(["userId", "module", "action", "entityId", "createdAt"])
+        && request.resource.data.userId == request.auth.uid
+        && request.resource.data.module is string
+        && request.resource.data.action is string
+        && request.resource.data.entityId is string
+        && request.resource.data.createdAt is number
+        && (!('details' in request.resource.data) || request.resource.data.details is map);
+      allow update, delete: if false;
+    }
+
+    // ============================================================
+    // COLECCIÓN: ORDER_REQUESTS (Solicitudes públicas)
+    // ============================================================
+    
+    match /order_requests/{docId} {
+      allow read: if isAdmin();
+      allow create: if !isLoggedIn()
+        && hasRequiredFields(["customerInput", "items", "status", "createdAt", "source"])
+        && request.resource.data.status == "pending"
+        && request.resource.data.source == "public_form"
+        && request.resource.data.linkedClientId == null
+        && request.resource.data.customerInput.keys().hasAll(["nombre", "cuit", "razonSocial", "direccion"])
+        && request.resource.data.items is list
+        && request.resource.data.items.size() > 0;
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // ============================================================
+    // COLECCIONES CRM
+    // ============================================================
+    
+    match /crm_leads/{docId} {
+      allow read: if isAdmin();
+      allow create: if isAdmin() && request.resource.data.keys().size() > 0;
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    match /crm_seguimiento/{docId} {
+      allow read: if isAdmin();
+      allow create: if isAdmin() && request.resource.data.keys().size() > 0;
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    match /crm_clientes/{docId} {
+      allow read: if isAdmin();
+      allow create: if isAdmin() && hasRequiredFields(["cliente", "fechaInicio"]);
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    match /crm_incidencias/{docId} {
+      allow read: if isAdmin();
+      allow create: if isAdmin();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    match /crm_servicios/{docId} {
+      allow read: if isAdmin();
+      allow create: if isAdmin();
+      allow update: if isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    match /clientes/{clienteId}/incidencias/{incId} {
+      allow read: if isEmpleado();
+      allow create, update: if isEmpleado();
+      allow delete: if false;
+    }
+    
+    match /clientes/{clienteId}/servicios/{servId} {
+      allow read: if isEmpleado();
+      allow create, update: if isEmpleado();
+      allow delete: if false;
+    }
+
+    // ============================================================
+    // FALLBACK: DENEGAR TODO LO DEMÁS
+    // ============================================================
+    
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
