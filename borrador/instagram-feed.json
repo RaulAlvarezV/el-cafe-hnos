@@ -1,0 +1,40 @@
+{
+  "_note": "Feed de EJEMPLO con el mismo shape que la Instagram Graph API (GET /{ig-user-id}/media?fields=id,caption,media_type,media_url,permalink,thumbnail_url). En producción, 'data' lo entrega un endpoint propio (Cloud Function de Firebase que llama a la Graph API con un token de larga duración y cachea el resultado). Solo hay que cambiar la URL del fetch() en index.html por la del endpoint.",
+  "data": [
+    {
+      "id": "1",
+      "media_type": "VIDEO",
+      "media_url": "../assets/videos/preview-lo-que-nadie-te-cuenta-antes-de-elegir-cafe-p1.mp4",
+      "permalink": "https://www.instagram.com/elcafehermanos/",
+      "caption": "Lo que nadie te cuenta antes de elegir café (parte 1)"
+    },
+    {
+      "id": "2",
+      "media_type": "IMAGE",
+      "media_url": "../assets/img/Taza-Desayuno.webp",
+      "permalink": "https://www.instagram.com/elcafehermanos/",
+      "caption": "Tu desayuno con el mejor café de Mendoza"
+    },
+    {
+      "id": "3",
+      "media_type": "IMAGE",
+      "media_url": "../assets/img/Pocillo-cafe.webp",
+      "permalink": "https://www.instagram.com/elcafehermanos/",
+      "caption": "Un pocillo como debe ser"
+    },
+    {
+      "id": "4",
+      "media_type": "VIDEO",
+      "media_url": "../assets/videos/preview-lo-que-nadie-te-cuenta-antes-de-elegir-cafe-p2.mp4",
+      "permalink": "https://www.instagram.com/elcafehermanos/",
+      "caption": "Lo que nadie te cuenta antes de elegir café (parte 2)"
+    },
+    {
+      "id": "5",
+      "media_type": "IMAGE",
+      "media_url": "../assets/img/Jarro-Americano.webp",
+      "permalink": "https://www.instagram.com/elcafehermanos/",
+      "caption": "Americano para arrancar el día"
+    }
+  ]
+}

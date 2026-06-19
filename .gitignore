@@ -4,6 +4,12 @@ node_modules/
 # Archivos de configuración con credenciales
 js/firebase-config.js
 
+# Token de Instagram — NUNCA subir a git (el real vive en Hostinger, fuera de public_html)
+secret-ig.php
+secret-ig.php.php
+secret-ig.php*
+secret-ig.txt
+
 # Firebase
 .firebase/
 firebase-debug.log
