@@ -49,7 +49,7 @@ guardado solo en el servidor.
 
 ### Parte B — El sitio está en Hostinger (Premium): usamos PHP, no Firebase
 El feed se sirve con un PHP en el propio Hostinger (mismo origen, sin CORS, sin Firebase, sin
-plan Blaze). Archivos ya listos en `borrador/`: `instagram.php`, `ig-refresh.php`,
+plan Blaze). Archivos ya listos en ``: `instagram.php`, `ig-refresh.php`,
 `secret-ig.example.php`.
 
 5. **Guardar el token (seguro):** copiá `secret-ig.example.php` como `secret-ig.php`, pegá el
